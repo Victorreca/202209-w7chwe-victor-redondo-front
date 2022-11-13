@@ -9,10 +9,7 @@ body,
 html {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-  background-color: "#7eabc3";
+  background-color: #aa00aa;
 }
 
 input,
@@ -20,6 +17,7 @@ button,
 textarea,
 select {
   font: inherit;
+  padding: 10px
 }
 
 button,
@@ -43,6 +41,20 @@ h4,
 h5,
 h6 {
   margin: 0;
+  
+}
+label{
+  display: block;
+  color: white;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.form__title {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    color: white;
 }
 
 img {
@@ -50,6 +62,19 @@ img {
   max-width: 100%;
 }
 
+.button {
+    margin-top: 25px;
+    border-radius: 10px;
+    border: none;
+}
+.button:hover {
+  background: #00f1ff;;
+  
+  text-decoration: none;
+}
+input{
+  border-radius: 10px;
+}
 `;
 
 export default GlobalStyle;
