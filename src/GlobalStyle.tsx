@@ -17,7 +17,8 @@ button,
 textarea,
 select {
   font: inherit;
-  padding: 10px
+  padding: 15px 20px;
+  
 }
 
 button,
@@ -43,38 +44,21 @@ h6 {
   margin: 0;
   
 }
-label{
-  display: block;
-  color: white;
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
 
-.form__title {
-    text-align: center;
-    padding-top: 50px;
-    padding-bottom: 20px;
-    color: white;
-}
 
 img {
   display: block;
   max-width: 100%;
 }
 
-.button {
-    margin-top: 25px;
-    border-radius: 10px;
-    border: none;
-}
-.button:hover {
-  background: #00f1ff;;
-  
-  text-decoration: none;
-}
-input{
-  border-radius: 10px;
-}
+
+  .form__title {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    color: white;
+  }
+
 `;
 
 export default GlobalStyle;

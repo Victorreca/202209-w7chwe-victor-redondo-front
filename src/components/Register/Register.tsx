@@ -32,6 +32,7 @@ const Register = (): JSX.Element => {
   return (
     <>
       <h2 className="form__title">Welcome to Lenkiden</h2>
+      <h3 className="form__title">Register form:</h3>
       <RegisterStyled onSubmit={handleSubmit}>
         <div className="form__container">
           <label className="form__label" htmlFor="user">
