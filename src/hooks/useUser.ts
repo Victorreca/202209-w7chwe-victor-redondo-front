@@ -1,9 +1,9 @@
-import { UserCredentials } from "../types";
+import { UserCredentialsData } from "../types";
 
 const useUser = () => {
   const url = process.env.REACT_APP_API_URL!;
 
-  const registerUser = async (userData: UserCredentials) => {
+  const registerUser = async (userData: UserCredentialsData) => {
     try {
       const responseData = await fetch(`${url}/users/register`, {
         method: "POST",
