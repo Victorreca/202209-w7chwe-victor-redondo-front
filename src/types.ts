@@ -3,10 +3,6 @@ export interface UserCredentials {
   password: string;
 }
 
-export interface UserRegisterCredentials extends UserCredentials {
-  name: string;
-}
-
 export interface User {
   id: string;
   username: string;
@@ -16,7 +12,6 @@ export interface User {
 export interface JwtPayloadCustom {
   id: string;
   username: string;
-  email: string;
 }
 
 export interface UserStructure {

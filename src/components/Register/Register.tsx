@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { RegisterStyled } from "./RegisterStyled";
+import useUser from "../../hooks/useUser";
+import { UserCredentials } from "../../types";
 
 const Register = (): JSX.Element => {
+  const { registerUser } = useUser();
+
   const initialFormData = {
     username: "",
     password: "",
   };
   const [initialForm, setInitialForm] = useState(initialFormData);
-
-  const navigate = useNavigate();
 
   const handleFormChange = (
     event:
@@ -26,7 +27,12 @@ const Register = (): JSX.Element => {
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
 
-    navigate("/users");
+    const formDataToSubmit: UserCredentials = {
+      username: initialFormData.username,
+      password: initialFormData.password,
+    };
+
+    registerUser(formDataToSubmit);
   };
 
   return (
