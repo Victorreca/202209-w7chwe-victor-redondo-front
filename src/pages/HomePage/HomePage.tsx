@@ -1,4 +1,4 @@
-const Home = (): JSX.Element => {
+const HomePage = (): JSX.Element => {
   return (
     <>
       <div className="page-header"></div>
@@ -6,4 +6,4 @@ const Home = (): JSX.Element => {
   );
 };
 
-export default Home;
+export default HomePage;

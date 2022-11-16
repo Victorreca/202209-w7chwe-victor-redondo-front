@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { RegisterStyled } from "./RegisterStyled";
 import useUser from "../../hooks/useUser";
 import { UserCredentialsData } from "../../types";
+import { Link } from "react-router-dom";
 
 const Register = (): JSX.Element => {
   const { registerUser } = useUser();
@@ -63,6 +64,14 @@ const Register = (): JSX.Element => {
         <button className="button" type="submit">
           Sign up
         </button>
+        <div className="register-info">
+          If you have an account.
+          <span className="form__link">
+            <div>
+              <Link to={"/login"}>Click here to login</Link>
+            </div>
+          </span>
+        </div>
       </RegisterStyled>
     </>
   );
