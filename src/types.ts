@@ -13,3 +13,13 @@ export interface UserLoginData {
 export interface UserState extends UserLoginData {
   isLogged: boolean;
 }
+
+export interface JwtCustomPayload {
+  id: string;
+  username: string;
+}
+
+export interface UserRegisterData {
+  username: string;
+  password: string;
+}
