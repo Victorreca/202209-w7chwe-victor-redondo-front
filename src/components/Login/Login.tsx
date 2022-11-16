@@ -65,17 +65,19 @@ const Login = (): JSX.Element => {
         </div>
 
         <button className="button" type="submit">
-          Sign up
+          Sign in
         </button>
-        <div className="register-info">
+        <div className="form__info">
           If you don't have an account yet.
           <span className="form__link">
             <div>
-              <Link to={"/register"}>Click here to register</Link>
+              <Link to={"/register"} className="form__register">
+                Click here to register
+              </Link>
             </div>
           </span>
         </div>
-        {error && <span>{error}</span>}
+        {error && <span className="form_message">{error}</span>}
       </LoginStyled>
     </>
   );
