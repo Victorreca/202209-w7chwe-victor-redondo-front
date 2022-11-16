@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { RegisterStyled } from "./RegisterStyled";
-import useUser from "../../hooks/useUser";
-import { UserCredentialsData } from "../../types";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { LoginStyled } from "./LoginStyled";
+import useUser from "../../hooks/useUser";
+import { UserRegisterData } from "../../types";
 
-const Register = (): JSX.Element => {
-  const { registerUser } = useUser();
-
-  const initialFormData = {
+const Login = (): JSX.Element => {
+  const initialFormData: UserRegisterData = {
     username: "",
     password: "",
   };
-  const [initialForm, setInitialForm] = useState(initialFormData);
+  const [error, setError] = useState("");
+  const [initialForm, setData] = useState(initialFormData);
+  const { userLogin } = useUser();
 
   const handleFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInitialForm({
+    setData({
       ...initialForm,
       [event.target.id]: event.target.value,
     });
@@ -23,19 +23,22 @@ const Register = (): JSX.Element => {
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
 
-    const formDataToSubmit: UserCredentialsData = {
+    const formDataToSubmit: UserRegisterData = {
       username: initialForm.username,
       password: initialForm.password,
     };
-
-    registerUser(formDataToSubmit);
+    try {
+      await userLogin(formDataToSubmit);
+    } catch (error: unknown) {
+      setError((error as Error).message);
+    }
   };
 
   return (
     <>
       <h2 className="form__title">Welcome to Lenkiden</h2>
-      <h3 className="form__title">Register form:</h3>
-      <RegisterStyled onSubmit={handleSubmit}>
+      <h3 className="form__title">Login form:</h3>
+      <LoginStyled onSubmit={handleSubmit}>
         <div className="form__container">
           <label className="form__label" htmlFor="username">
             Username
@@ -65,16 +68,17 @@ const Register = (): JSX.Element => {
           Sign up
         </button>
         <div className="register-info">
-          If you have an account.
+          If you don't have an account yet.
           <span className="form__link">
             <div>
-              <Link to={"/login"}>Click here to login</Link>
+              <Link to={"/register"}>Click here to register</Link>
             </div>
           </span>
         </div>
-      </RegisterStyled>
+        {error && <span>{error}</span>}
+      </LoginStyled>
     </>
   );
 };
 
-export default Register;
+export default Login;
