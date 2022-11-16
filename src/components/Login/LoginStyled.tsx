@@ -27,6 +27,21 @@ export const LoginStyled = styled.form`
   .form__label {
     font-size: 18px;
   }
+  .form__info {
+    color: ${(props) => props.theme.mainColorFonts};
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  .form__register {
+    color: ${(props) => props.theme.mainColorFonts};
+  }
+  .form__register:hover {
+    color: black;
+  }
+  .form__message {
+    text-shadow: 2px 2px #000;
+    color: white;
+  }
 
   @media (min-width: 700px) {
     input {
