@@ -6,7 +6,7 @@ import decodeToken from "../../utils/decodeToken";
 const useToken = () => {
   const dispatch = useAppDispatch();
 
-  const getToken = useCallback(() => {
+  const checkToken = useCallback(() => {
     const token = localStorage.getItem("token");
 
     if (token) {
@@ -18,7 +18,7 @@ const useToken = () => {
   const removeToken = () => {
     localStorage.removeItem("token");
   };
-  return { getToken, removeToken };
+  return { getToken: checkToken, removeToken };
 };
 
 export default useToken;

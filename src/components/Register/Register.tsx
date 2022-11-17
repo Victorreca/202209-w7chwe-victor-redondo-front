@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { RegisterStyled } from "./RegisterStyled";
 import useUser from "../../hooks/useUser";
 import { UserCredentialsData } from "../../types";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Register = (): JSX.Element => {
   const { registerUser } = useUser();
-  const navigate = useNavigate();
 
   const initialFormData = {
     username: "",
@@ -30,7 +29,6 @@ const Register = (): JSX.Element => {
     };
 
     registerUser(formDataToSubmit);
-    navigate("/home");
   };
 
   return (

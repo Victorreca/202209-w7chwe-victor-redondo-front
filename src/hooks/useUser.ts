@@ -1,5 +1,6 @@
 import { userLoginActionCreator } from "../redux/features/userLoginSlice/userLoginSlice";
 import { useAppDispatch } from "../redux/hooks";
+import { useNavigate } from "react-router-dom";
 import {
   JwtCustomPayload,
   UserCredentialsData,
@@ -9,6 +10,7 @@ import decodeToken from "../utils/decodeToken";
 
 const useUser = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const url = process.env.REACT_APP_API_URL!;
 
@@ -24,6 +26,7 @@ const useUser = () => {
       if (!responseData.ok) {
         throw new Error("There is an strange error");
       }
+      navigate("/home");
     } catch (error: unknown) {
       throw new Error(
         `There was an error with the register: ${(error as Error).message}`
